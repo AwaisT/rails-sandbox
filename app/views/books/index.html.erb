@@ -1,0 +1,22 @@
+<h1> Books Listing </h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Isbn</th>
+    <th>Price</th>
+    <th>Action </th>
+  </tr>
+  <tr>
+    <% @books.each do |book| %>
+    <td> <%= book.title %> </td>
+    <td> <%= book.isbn %> </td>
+    <td> <%= book.price %> </td>
+    <td> <%= link_to 'Delete', book_path(book),
+              method: :delete,
+              data: {confirm: "Are You Sure"} %>
+    </td>
+  </tr>
+</table>
+<% end %>
+<%= link_to 'Add Book' , new_book_path %>
